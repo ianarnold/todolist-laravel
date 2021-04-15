@@ -1,111 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Todo App JavaScript | CodingNepal</title> -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
-  <style>
-  *{
-  margin: 0;
-  padding: 0;
-  font-family: "montserrat",sans-serif;
-  box-sizing: border-box;
-}
-
-body{
-  background-image: linear-gradient(120deg,#487eb0,#fbc531);
-  min-height: 100vh;
-}
-
-
-.container{
-  max-width: 800px;
-  margin: auto;
-  padding: 10px;
-}
-
-.txtb{
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid #000;
-  background: none;
-  padding: 10px;
-  outline: none;
-  font-size: 18px;
-}
-
-h3{
-  margin: 10px 0;
-}
-
-.task{
-  width: 100%;
-  background: rgba(255,255,255,0.5);
-  padding: 18px;
-  margin: 6px 0;
-  overflow: hidden;
-}
-
-.task i{
-  float: right;
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-.comp .task{
-  background: rgba(0,0,0,.5);
-  color: #fff;
-}
-  </style>
-  <body>
-
-    <div class="container">
-      <input type="text" class="txtb" placeholder="Add a task">
-      <div class="notcomp">
-        <h3>Not Completed</h3>
-
-
-
-      </div>
-
-      <div class="comp">
-        <h3>Completed</h3>
-      </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/styles.css') }} ">
+</head>
+<body>
+  <div class="wrapper">
+    <header>To Do LIST - LARAVEL</header>
+    <div class="inputField">
+      <input type="text" placeholder="Adicione a tarefa">
+      <select>
+      <option>sss</option>
+      </select>
+      <button><i class="fas fa-plus"></i></button>
     </div>
+    <ul class="todoList">
+      <!-- data are comes from local storage -->
+    </ul>
+    <div class="footer">
+      <span>You have <span class="pendingTasks"></span> pending tasks</span>
+      <button>Clear All</button>
+    </div>
+  </div>
 
+  <!-- <script src="script.js"></script> -->
 
-    <script type="text/javascript">
-      $(".txtb").on("keyup",function(e){
-        //13  means enter button
-        if(e.keyCode == 13 && $(".txtb").val() != "")
-        {
-          var task = $("<div class='task'></div>").text($(".txtb").val());
-          var del = $("<i class='fas fa-trash-alt'></i>").click(function(){
-            var p = $(this).parent();
-            p.fadeOut(function(){
-              p.remove();
-            });
-          });
-
-          var check = $("<i class='fas fa-check'></i>").click(function(){
-            var p = $(this).parent();
-            p.fadeOut(function(){
-              $(".comp").append(p);
-              p.fadeIn();
-            });
-            $(this).remove();
-          });
-
-          task.append(del,check);
-          $(".notcomp").append(task);
-            //to clear the input
-          $(".txtb").val("");
-        }
-      });
-    </script>
-
-  </body>
+</body>
 </html>
