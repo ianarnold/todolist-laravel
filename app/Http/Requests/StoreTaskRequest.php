@@ -13,7 +13,7 @@ class StoreTaskRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,19 @@ class StoreTaskRequest extends FormRequest
      */
     public function rules()
     {
+        return 
+        [ 
+            'name' => 'required',
+            'description' => 'required'
+        ];
+        
+    }
+
+    public function messages() 
+    {
         return [
-            //
+            'name.required' => 'O campo NOME é obrigatório.',
+            'description.required' => 'O campo DESCRIÇÃO é obrigatório.'
         ];
     }
 }

@@ -25,6 +25,19 @@
     <div class="row m-1 p-3">
         <div class="col col-11 mx-auto">
             <div class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
+            @if ($errors->any())
+                                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                                        <strong>Whoops!</strong>
+                                        Tem alguns problemas com seu cadastro<br>
+                                            <br>
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                            <br>
+                                            @endif
             <form action="{{route('storetask')}}" method="POST" id="form">
             @csrf
                 <div class="col">
