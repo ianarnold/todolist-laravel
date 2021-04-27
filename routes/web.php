@@ -17,6 +17,11 @@ use App\Http\Controllers\TasksController;
 
 //RETORNAM VIEWS
 Route::get('/', [TasksController::class, 'tasksView'])->name('tasksview');
+Route::get('/edit/{task}', [TasksController::class, 'editTaskView'])->name('edittaskview');
+
+///////////////////////////////////////////////
 
 //AÇÕES DO CRUD
 Route::post('/store', [TasksController::class, 'store'])->name('storetask');
+Route::get('/delete/{id}', [TasksController::class, 'deleteTask'])->name('deletetask');
+

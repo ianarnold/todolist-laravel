@@ -87,10 +87,10 @@
                 <div class="col-auto m-1 p-0 todo-actions">
                     <div class="row d-flex align-items-center justify-content-end">
                         <h5 class="m-0 p-0 px-2">
-                            <i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo">EDITAR</i>
+                            <a href="{{ route('edittaskview', ['task' => $task->id]) }}"><i class="fa fa-pencil text-info btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Edit todo">EDITAR</i><a>
                         </h5>
                         <h5 class="m-0 p-0 px-2">
-                            <i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo">APAGAR</i>
+                            <a href="{{ route('deletetask', ['id' => $task->id]) }}"><i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom" title="Delete todo">APAGAR</i><a>
                         </h5>
                     </div>
                     <div class="row todo-created-info">
@@ -101,6 +101,7 @@
                     </div>
                 </div>
             </div>
+            <hr>
             @endforeach
             {{$tasks->links()}}
     </div>

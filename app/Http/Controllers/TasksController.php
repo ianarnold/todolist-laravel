@@ -20,4 +20,17 @@ class TasksController extends Controller
         $tasks = Task::paginate(15);
         return view('welcome', ['tasks' => $tasks]);
     }
+
+    public function editTaskView(Task $task)
+    { 
+        return view('edittask', ['task' => $task]);
+    }
+
+    public function deleteTask($id)
+    {
+        $task = Task::findOrFail($id);
+        $task->delete();
+        return redirect()->route('tasksview');
+    }
+
 }
