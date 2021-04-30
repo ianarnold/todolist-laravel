@@ -26,6 +26,13 @@ class TasksController extends Controller
         return view('edittask', ['task' => $task]);
     }
 
+    public function editTask(Task $task, Request $request)
+    {
+        $data = $request->only(['name', 'description']);
+        $task->update($data);
+        return redirect()->route('tasksview');
+    }
+
     public function deleteTask($id)
     {
         $task = Task::findOrFail($id);
