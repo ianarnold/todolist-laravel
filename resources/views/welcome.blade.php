@@ -95,7 +95,7 @@
                                 title="Edit todo">EDITAR</i>
                             <a></h5>
                             <h5 class="m-0 p-0 px-2">
-                                <a href="{{ route('deletetask', ['id' => $task->id]) }}">
+                                <a href="{{ route('deletetask', ['task' => $task->id]) }}">
                                     <i
                                         class="fa fa-trash-o text-danger btn m-0 p-0"
                                         data-toggle="tooltip"

@@ -33,9 +33,10 @@ class TasksController extends Controller
         return redirect()->route('tasksview');
     }
 
-    public function deleteTask($id)
+    // public function deleteTask($id)
+    public function deleteTask(Task $task)
     {
-        $task = Task::findOrFail($id);
+        // $task = Task::findOrFail($id);
         $task->delete();
         return redirect()->route('tasksview');
     }

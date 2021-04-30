@@ -23,6 +23,6 @@ Route::get('/edit/{task}', [TasksController::class, 'editTaskView'])->name('edit
 
 //AÇÕES DO CRUD
 Route::post('/store', [TasksController::class, 'store'])->name('storetask');
-Route::get('/delete/{id}', [TasksController::class, 'deleteTask'])->name('deletetask');
+Route::get('/delete/{task}', [TasksController::class, 'deleteTask'])->name('deletetask');
 Route::put('/edit/{task}', [TasksController::class, 'editTask'])->name('edittask');
 
