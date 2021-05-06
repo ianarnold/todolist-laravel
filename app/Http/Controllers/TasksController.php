@@ -8,6 +8,7 @@ use App\Http\Requests\StoreTaskRequest;
 class TasksController extends Controller
 {
     
+    // SALVAR TASK
     public function store(StoreTaskRequest $request)
     {
         $data = $request->only(['name', 'description']);
@@ -15,17 +16,20 @@ class TasksController extends Controller
         return redirect()->route('tasksview');
     }
 
+    // LISTAR TODAS AS TASKS DE 15 EM 15 COM O PAGINATE
     public function tasksView()
     {
         $tasks = Task::paginate(15);
         return view('welcome', ['tasks' => $tasks]);
     }
 
+    // RETORNAR VIEW DE EDIÇÃO DE TASK
     public function editTaskView(Task $task)
     { 
         return view('edittask', ['task' => $task]);
     }
 
+    // EDITAR TASK
     public function editTask(Task $task, Request $request)
     {
         $data = $request->only(['name', 'description']);
@@ -33,10 +37,10 @@ class TasksController extends Controller
         return redirect()->route('tasksview');
     }
 
-    // public function deleteTask($id)
+    // DELETAR TASK
     public function deleteTask(Task $task)
     {
-        // $task = Task::findOrFail($id);
+        // $task = Task::findOrFail($id); --> (Task $task) já faz o FindOrFail...
         $task->delete();
         return redirect()->route('tasksview');
     }

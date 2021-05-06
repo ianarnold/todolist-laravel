@@ -1,5 +1,4 @@
-@extends('layouts.header') 
-@section('content')
+@extends('layouts.header') @section('content')
 <!-- Create todo section -->
 <div class="row m-1 p-3">
     <div class="col col-11 mx-auto">
@@ -117,7 +116,7 @@
                             </div>
                         </div>
                         <hr>
-                        @endforeach
+            @endforeach
                         {{$tasks->links()}}
                     </div>
-@endsection
+                    @endsection
